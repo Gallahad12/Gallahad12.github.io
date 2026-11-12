@@ -130,6 +130,12 @@
   .stat { background: var(--surface-2); border-radius: 10px; padding: 14px; }
   .stat b { display: block; font-size: 26px; letter-spacing: -0.01em; }
   .stat span { font-size: 13px; color: var(--muted); }
+  .shots { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; margin: 0 0 20px; }
+  .shot { margin: 0; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: #fff; }
+  .shot a { display: block; }
+  .shot img { display: block; width: 100%; height: auto; transition: transform .2s; }
+  .shot a:hover img { transform: scale(1.02); }
+  .shot figcaption { font-size: 13px; color: var(--muted); padding: 8px 12px; background: var(--surface-2); }
   .tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-family: var(--mono); font-size: 12px; background: var(--accent-soft); color: var(--accent); padding: 4px 10px; border-radius: 6px; }
 
@@ -256,6 +262,10 @@
         <div class="stat"><b>5.12%</b><span>NPL ratio</span></div>
         <div class="stat"><b>402</b><span>bad rows caught</span></div>
       </div>
+      <div class="shots">
+        <figure class="shot"><a href="assets/img/loan-credit-quality.png" target="_blank" rel="noopener"><img src="assets/img/loan-credit-quality.png" alt="Power BI credit quality dashboard with NPL trend, collectibility mix and NPL by branch and product" loading="lazy"></a><figcaption>Power BI · credit quality and NPL</figcaption></figure>
+        <figure class="shot"><a href="assets/img/loan-payments.png" target="_blank" rel="noopener"><img src="assets/img/loan-payments.png" alt="Power BI payments dashboard with collections by month and channel and on-time rate by income band" loading="lazy"></a><figcaption>Power BI · payments and on-time rate</figcaption></figure>
+      </div>
       <div class="tags">
         <span class="tag">SQL Server</span><span class="tag">T-SQL</span><span class="tag">SSIS</span><span class="tag">SQL Agent</span><span class="tag">SCD Type 2</span><span class="tag">Power BI</span><span class="tag">DAX</span>
       </div>
@@ -289,6 +299,9 @@
         <div class="stat"><b>75</b><span>data quality checks</span></div>
         <div class="stat"><b>−1.7</b><span>review points when late</span></div>
       </div>
+      <div class="shots">
+        <figure class="shot"><a href="https://datastudio.google.com/s/pjhwMohMZ4o" target="_blank" rel="noopener"><img src="assets/img/ecommerce-dashboard.jpg" alt="Looker Studio dashboard of Olist orders, revenue, review score and late rate" loading="lazy"></a><figcaption>Looker Studio · click to open the live dashboard</figcaption></figure>
+      </div>
       <div class="tags">
         <span class="tag">Apache Airflow</span><span class="tag">dbt</span><span class="tag">BigQuery</span><span class="tag">Great Expectations</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span>
       </div>
@@ -300,6 +313,8 @@
       <p class="question">"Which conditions make road accidents more likely?"</p>
       <div class="links">
         <a href="https://github.com/CODA-Assignment-Bay/final-project-coda-006-rmt-group-001">GitHub →</a>
+        <a href="https://public.tableau.com/views/TrafficAccidentDashboard_17479371989670/Story1">Tableau dashboard →</a>
+        <a href="https://lookerstudio.google.com/reporting/0059e92e-e6f0-4f4f-8721-53253e74a2c2">Looker Studio →</a>
       </div>
       <div class="cols">
         <div>
@@ -311,7 +326,10 @@
           <p>Interactive dashboards in Tableau and Looker Studio that show when, where and under which conditions crashes happen, to support safer transport policy.</p>
         </div>
       </div>
-      <div class="tags" style="margin-top:22px">
+      <div class="shots" style="margin-top:22px">
+        <figure class="shot"><a href="https://public.tableau.com/views/TrafficAccidentDashboard_17479371989670/Story1" target="_blank" rel="noopener"><img src="assets/img/traffic-crash-factors.png" alt="Tableau crash factor dashboard with main causes, road defects, weather and injury types" loading="lazy"></a><figcaption>Tableau · crash factors (click to open the full story)</figcaption></figure>
+      </div>
+      <div class="tags">
         <span class="tag">Apache Airflow</span><span class="tag">PySpark</span><span class="tag">Great Expectations</span><span class="tag">PostgreSQL</span><span class="tag">Tableau</span><span class="tag">Docker</span>
       </div>
     </article>
