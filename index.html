@@ -133,6 +133,15 @@
   .tags { display: flex; flex-wrap: wrap; gap: 8px; }
   .tag { font-family: var(--mono); font-size: 12px; background: var(--accent-soft); color: var(--accent); padding: 4px 10px; border-radius: 6px; }
 
+  /* work projects */
+  .work-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (max-width: 800px) { .work-grid { grid-template-columns: 1fr; } }
+  .work-card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 24px; display: flex; flex-direction: column; }
+  .work-card h3 { font-size: 20px; margin: 8px 0 10px; }
+  .work-card p { margin: 0 0 16px; color: var(--muted); flex: 1; }
+  .work-stat { font-family: var(--mono); font-size: 13px; color: var(--muted); margin-bottom: 14px; }
+  .work-stat b { color: var(--text); font-size: 15px; }
+
   /* about */
   .about { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; }
   @media (max-width: 800px) { .about { grid-template-columns: 1fr; } }
@@ -168,6 +177,7 @@
     <a class="brand" href="#top"><span class="dot"></span>Hisham Suharto</a>
     <ul>
       <li><a href="#projects">Projects</a></li>
+      <li><a href="#work">At work</a></li>
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -307,9 +317,47 @@
     </article>
   </section>
 
+  <section id="work">
+    <div class="section-head">
+      <span class="eyebrow">02 · IN PRODUCTION</span>
+      <h2 class="title">Pipelines I built at Transfez</h2>
+      <p class="lead" style="margin-top:12px">Real pipelines running on Apache Airflow and ClickHouse for a cross-border remittance company. The code is private, so here is what each one does.</p>
+    </div>
+    <div class="work-grid">
+      <article class="work-card">
+        <div class="project-meta"><span>MONTHLY · FINANCE</span></div>
+        <h3>Monthly financial report</h3>
+        <p>A 26-task pipeline that builds 16 channel reports in parallel (cross-border, local, B2B, virtual accounts, payroll and more), then combines them into one Excel and CSV pack in Google Drive. It covers GTV, fees, FX margin and revenue, split by business and personal users.</p>
+        <div class="work-stat"><b>26</b> tasks · <b>16</b> reports in parallel</div>
+        <div class="tags"><span class="tag">Airflow</span><span class="tag">ClickHouse</span><span class="tag">Python</span><span class="tag">Google Drive API</span></div>
+      </article>
+      <article class="work-card">
+        <div class="project-meta"><span>3× DAILY · OPERATIONS</span></div>
+        <h3>SLA monitoring</h3>
+        <p>Combines three transaction sources into one query, checks every in-flight transfer against an SLA API in batches of 100, uploads the result to Google Drive and posts a safe / breach / error summary to Google Chat. API errors are logged instead of failing the run.</p>
+        <div class="work-stat"><b>3</b> sources · batches of <b>100</b></div>
+        <div class="tags"><span class="tag">Airflow</span><span class="tag">ClickHouse</span><span class="tag">REST API</span><span class="tag">Google Chat</span></div>
+      </article>
+      <article class="work-card">
+        <div class="project-meta"><span>MONTHLY · MARKETING</span></div>
+        <h3>RFM customer segmentation</h3>
+        <p>Segments customers in Indonesia and Singapore into 8 groups using quantile rules on recency, frequency and monetary value. Hysteresis rules stop sudden drops, such as a Champion becoming Lost after one quiet month, so marketing gets stable segments.</p>
+        <div class="work-stat"><b>8</b> segments · <b>2</b> markets</div>
+        <div class="tags"><span class="tag">Airflow</span><span class="tag">ClickHouse</span><span class="tag">pandas</span></div>
+      </article>
+      <article class="work-card">
+        <div class="project-meta"><span>DAILY · RECONCILIATION</span></div>
+        <h3>Partner FX rate sync</h3>
+        <p>Reads exchange rates from a partner's Google Sheet every day, parses European number formats, converts each rate to the direction the database uses, and loads it into ClickHouse for reconciliation and financial reporting.</p>
+        <div class="work-stat"><b>Daily</b> · Sheets → ClickHouse</div>
+        <div class="tags"><span class="tag">Airflow</span><span class="tag">Google Sheets API</span><span class="tag">ClickHouse</span></div>
+      </article>
+    </div>
+  </section>
+
   <section id="about">
     <div class="section-head">
-      <span class="eyebrow">02 · ABOUT</span>
+      <span class="eyebrow">03 · ABOUT</span>
       <h2 class="title">From bank software to data pipelines</h2>
     </div>
     <div class="about">
@@ -330,7 +378,7 @@
 
   <section id="experience">
     <div class="section-head">
-      <span class="eyebrow">03 · EXPERIENCE</span>
+      <span class="eyebrow">04 · EXPERIENCE</span>
       <h2 class="title">Where I've worked</h2>
     </div>
     <div class="timeline">
@@ -338,7 +386,7 @@
         <h3>Jr Data Engineer · Jack &amp; Transfez</h3>
         <div class="when">Jul 2025 – Oct 2026</div>
         <ul>
-          <li>Built and scheduled Airflow pipelines that ingest, transform and load data into ClickHouse.</li>
+          <li>Built and scheduled Airflow pipelines that ingest, transform and load data into ClickHouse, including a 26-task monthly financial report, SLA monitoring, RFM segmentation and a partner FX rate sync (<a href="#work">details</a>).</li>
           <li>Tuned ClickHouse tables and materialized views, cutting Metabase query time from ~10 s to under 1 s.</li>
           <li>Built self-serve Metabase dashboards and a Python framework that turns them into ready-to-send Excel reports.</li>
           <li>Delivered analyses for Product, Partnership and C-level, including KYC rejection root causes and a vendor SLA breach framework.</li>
@@ -365,7 +413,7 @@
 
   <section id="skills">
     <div class="section-head">
-      <span class="eyebrow">04 · SKILLS</span>
+      <span class="eyebrow">05 · SKILLS</span>
       <h2 class="title">Tools I use</h2>
     </div>
     <div class="skills">
@@ -378,7 +426,7 @@
 
   <section id="contact">
     <div class="contact">
-      <span class="eyebrow">05 · CONTACT</span>
+      <span class="eyebrow">06 · CONTACT</span>
       <h2 class="title">Let's talk</h2>
       <p>I'm looking for a data engineering role in Jakarta, Tangerang or remote. The fastest way to reach me is email or LinkedIn.</p>
       <div class="actions">
